@@ -10,10 +10,15 @@ public class PortHandler : MonoBehaviour
 {
     SerialPort sp;
     [SerializeField] Button connect_button;
-    [SerializeField] TMP_InputField connect_port_name;
+    [SerializeField] TMP_Dropdown connect_dropdown;
+    PortScanner ps;
+
 
     public void ConnectToPort(){
-        string portName = connect_port_name.text;
+        ps = GetComponent<PortScanner>();
+        Debug.LogError(ps.optionList.Count);
+        Debug.LogError(ps.optionList[connect_dropdown.value].text);
+        string portName = ps.optionList[connect_dropdown.value].text;
         sp = new SerialPort(portName, 115200);
         sp.Open();
     }
