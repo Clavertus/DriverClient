@@ -5,6 +5,7 @@ using System.IO.Ports;
 using UnityEngine.UI;
 using TMPro;
 using static System.Exception;
+using System.Linq;
 
 public class PortHandler : MonoBehaviour
 {
@@ -15,10 +16,9 @@ public class PortHandler : MonoBehaviour
 
 
     public void ConnectToPort(){
-        ps = GetComponent<PortScanner>();
-        Debug.LogError(ps.optionList.Count);
-        Debug.LogError(ps.optionList[connect_dropdown.value].text);
-        string portName = ps.optionList[connect_dropdown.value].text;
+        ps = GetComponent<PortScanner>();  
+      //  Debug.LogError(ps.optionList[0].text);
+        string portName = ps.optionList[0].text;
         sp = new SerialPort(portName, 115200);
         sp.Open();
     }

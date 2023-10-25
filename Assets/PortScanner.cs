@@ -7,7 +7,7 @@ using TMPro;
 public class PortScanner : MonoBehaviour
 {
 
-    [SerializeField] TMP_Dropdown connect_dropdown;
+    public TMP_Dropdown connect_dropdown;
     public List<TMP_Dropdown.OptionData> optionList;
 
 
